@@ -36,16 +36,18 @@ namespace AuthenticationAuthorization
             }
             //미들웨어 추가
             app.UseStaticFiles();//정적인 HTML, Css , JavaScript, ... 실행
+            //app.UseFileServer(); //Microsoft Docs UseFileServer
+
 
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World");
+                //});
             });
         }
     }
